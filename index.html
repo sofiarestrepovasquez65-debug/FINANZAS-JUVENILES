@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finanzas juveniles — Aprende a manejar tu dinero</title>
+<meta name="description" content="Plataforma educativa e interactiva de educación financiera para niños y adolescentes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- ===================== TOPBAR ===================== -->
+  <header class="topbar">
+    <a href="#" class="marca" data-pantalla="pantalla-inicio">
+      <span class="moneda">🪙</span> Finanzas juveniles
+    </a>
+    <nav class="nav-desktop" aria-label="Navegación principal">
+      <button data-pantalla="pantalla-inicio">🏠 Inicio</button>
+      <button data-pantalla="pantalla-aprende">📚 Aprende</button>
+      <button data-pantalla="pantalla-presupuesto">📋 Presupuesto</button>
+      <button data-pantalla="pantalla-metas">🎯 Metas</button>
+      <button data-pantalla="pantalla-decisiones">🛒 Gastos</button>
+      <button data-pantalla="pantalla-quiz">🧠 Quiz</button>
+      <button data-pantalla="pantalla-retos">🏅 Retos</button>
+      <button data-pantalla="pantalla-progreso">📈 Progreso</button>
+      <button data-pantalla="pantalla-asesor">💬 Asesor</button>
+    </nav>
+    <div class="contador-puntos">⭐ <span data-puntos-header>0</span> pts</div>
+  </header>
+
+  <main>
+
+    <!-- ===================== INICIO ===================== -->
+    <section id="pantalla-inicio" class="pantalla activa">
+      <div class="hero">
+        <span class="moneda-hero">🪙💰🐷</span>
+        <h1>Finanzas juveniles</h1>
+        <p class="eslogan">Aprende a manejar tu dinero jugando, practicando y decidiendo.</p>
+        <p class="explicacion">
+          Finanzas juveniles es una plataforma educativa e interactiva pensada para niños y adolescentes.
+          Aquí no solo lees sobre dinero: organizas un presupuesto real, creas metas de ahorro, tomas
+          decisiones en situaciones cotidianas y compruebas cuánto vas aprendiendo con retos y quizzes.
+        </p>
+        <div class="hero-botones">
+          <button class="btn btn-primario" data-pantalla="pantalla-aprende">Empezar a aprender</button>
+          <button class="btn btn-secundario" data-pantalla="pantalla-presupuesto">Crear mi presupuesto</button>
+        </div>
+      </div>
+
+      <div class="por-que-importa">
+        <div class="item">
+          <div class="icono">🌱</div>
+          <h3>Hábitos que duran toda la vida</h3>
+          <p>Lo que aprendes sobre el dinero de joven se convierte en hábitos que te acompañan de adulto.</p>
+        </div>
+        <div class="item">
+          <div class="icono">🧭</div>
+          <h3>Mejores decisiones</h3>
+          <p>Entender necesidades, deseos y metas te ayuda a decidir en qué gastar y en qué no.</p>
+        </div>
+        <div class="item">
+          <div class="icono">🚀</div>
+          <h3>Confianza para el futuro</h3>
+          <p>Saber cómo funcionan el ahorro, la inversión y las deudas te da seguridad para el futuro.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== APRENDE ===================== -->
+    <section id="pantalla-aprende" class="pantalla">
+      <div class="encabezado-seccion">
+        <h2>📚 Aprende</h2>
+        <p>Explora cada tema, revisa el ejemplo y comprueba lo aprendido con una pregunta rápida.</p>
+      </div>
+      <div id="grid-lecciones" class="grid-lecciones"></div>
+    </section>
+
+    <!-- ===================== MI PRESUPUESTO ===================== -->
+    <section id="pantalla-presupuesto" class="pantalla">
+      <div class="encabezado-seccion">
+        <h2>📋 Mi Presupuesto</h2>
+        <p>Ingresa tus datos y descubre cómo se organiza tu dinero.</p>
+      </div>
+      <form class="tarjeta-herramienta" id="form-presupuesto">
+        <div class="fila-campos dos-col">
+          <div class="campo">
+            <label for="input-ingresos">Dinero disponible / ingresos</label>
+            <input type="number" min="0" id="input-ingresos" placeholder="Ej: 50000">
+          </div>
+          <div class="campo">
+            <label for="input-necesarios">Gastos necesarios</label>
+            <input type="number" min="0" id="input-necesarios" placeholder="Ej: 20000">
+          </div>
+        </div>
+        <div class="fila-campos dos-col">
+          <div class="campo">
+            <label for="input-deseados">Gastos que quiero hacer (deseos)</label>
+            <input type="number" min="0" id="input-deseados" placeholder="Ej: 10000">
+          </div>
+          <div class="campo">
+            <label for="input-ahorro-deseado">Cantidad que quiero ahorrar</label>
+            <input type="number" min="0" id="input-ahorro-deseado" placeholder="Ej: 5000">
+          </div>
+        </div>
+
+        <div id="resultado-presupuesto" class="resultado-presupuesto oculto">
+          <div class="linea-resultado"><span>Gastos totales</span><span class="valor" id="valor-gastos-totales">$0</span></div>
+          <div class="linea-resultado"><span>Destinado al ahorro</span><span class="valor" id="valor-ahorro">$0</span></div>
+          <div class="linea-resultado"><span>Dinero restante</span><span class="valor" id="valor-restante">$0</span></div>
+          <div id="mensaje-presupuesto" class="mensaje-recomendacion"></div>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===================== MIS METAS ===================== -->
+    <section id="pantalla-metas" class="pantalla">
+      <div class="encabezado-seccion">
+        <h2>🎯 Mis Metas</h2>
+        <p>Define una meta de ahorro y observa tu progreso.</p>
+      </div>
+      <form class="tarjeta-herramienta" id="form-meta">
+        <div class="campo">
+          <label for="input-nombre-meta">Nombre de la meta</label>
+          <input type="text" id="input-nombre-meta" placeholder="Ej: Audífonos nuevos" required>
+        </div>
+        <div class="fila-campos dos-col">
+          <div class="campo">
+            <label for="input-objetivo-meta">Cantidad que necesito</label>
+            <input type="number" min="1" id="input-objetivo-meta" placeholder="Ej: 100000" required>
+          </div>
+          <div class="campo">
+            <label for="input-ahorrado-meta">Cantidad que ya tengo ahorrada</label>
+            <input type="number" min="0" id="input-ahorrado-meta" placeholder="Ej: 30000">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primario">Crear meta</button>
+      </form>
+      <div id="grid-metas" class="grid-metas"></div>
+    </section>
+
+    <!-- ===================== GASTOS INTELIGENTES ===================== -->
+    <section id="pantalla-decisiones" class="pantalla">
+      <div class="encabezado-seccion">
+        <h2>🛒 Gastos Inteligentes</h2>
+        <p>Toma la decisión y descubre qué puede pasar después.</p>
+      </div>
+      <div id="contenedor-escenario" class="tarjeta-escenario"></div>
+    </section>
+
+    <!-- ===================== QUIZ ===================== -->
+    <section id="pantalla-quiz" class="pantalla">
+      <div class="encabezado-seccion">
+        <h2>🧠 Quiz Financiero</h2>
+        <p>Responde 8 preguntas y comprueba cuánto sabes.</p>
+      </div>
+      <div class="tarjeta-quiz">
+        <div id="contenedor-quiz">
+          <p>Presiona el botón para comenzar un quiz aleatorio de educación financiera.</p>
+          <button class="btn btn-primario" id="btn-empezar-quiz">Comenzar quiz</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RETOS ===================== -->
+    <section id="pantalla-retos" class="pantalla">
+      <div class="encabezado-seccion">
+        <h2>🏅 Retos</h2>
+        <p>Completa retos de la vida real y gana puntos.</p>
+      </div>
+      <div id="grid-retos" class="grid-retos"></div>
+    </section>
+
+    <!-- ===================== MI PROGRESO ===================== -->
+    <section id="pantalla-progreso" class="pantalla">
+      <div class="encabezado-seccion">
+        <h2>📈 Mi Progreso</h2>
+        <p>Así va tu recorrido por Finanzas juveniles. No necesitas ningún dato personal para usar esta sección.</p>
+      </div>
+      <div class="grid-progreso">
+        <div class="tarjeta-stat"><div class="numero" id="stat-temas">0/0</div><div class="etiqueta">Temas completados</div></div>
+        <div class="tarjeta-stat"><div class="numero" id="stat-puntos">0</div><div class="etiqueta">Puntos obtenidos</div></div>
+        <div class="tarjeta-stat"><div class="numero" id="stat-quizzes">0</div><div class="etiqueta">Quizzes realizados</div></div>
+        <div class="tarjeta-stat"><div class="numero" id="stat-mejor-quiz">0%</div><div class="etiqueta">Mejor puntaje quiz</div></div>
+        <div class="tarjeta-stat"><div class="numero" id="stat-retos">0/0</div><div class="etiqueta">Retos completados</div></div>
+        <div class="tarjeta-stat"><div class="numero" id="stat-metas">0</div><div class="etiqueta">Metas de ahorro</div></div>
+      </div>
+      <div class="tarjeta-herramienta" style="max-width:100%">
+        <h3>Progreso general</h3>
+        <div class="barra-progreso-general">
+          <div class="barra-progreso"><div class="relleno" id="relleno-progreso-general" style="width:0%"></div></div>
+          <p id="texto-progreso-general" style="margin-top:10px; color:var(--ink-soft)">0% de tu recorrido completado</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ASESOR ===================== -->
+    <section id="pantalla-asesor" class="pantalla">
+      <div class="encabezado-seccion">
+        <h2>💬 Mi Asesor Financiero Educativo</h2>
+        <p>Pregunta lo que quieras sobre educación financiera.</p>
+      </div>
+      <div class="tarjeta-chat">
+        <div class="aviso-seguridad">
+          🔒 Este chat nunca pide contraseñas, datos bancarios ni información personal. Es solo educativo: no realiza inversiones ni movimientos de dinero real.
+        </div>
+        <div id="mensajes-chat" class="mensajes-chat"></div>
+        <div class="sugerencias-chat">
+          <button data-sugerencia-chat="Quiero aprender a ahorrar">Quiero aprender a ahorrar</button>
+          <button data-sugerencia-chat="¿Cómo hago un presupuesto?">¿Cómo hago un presupuesto?</button>
+          <button data-sugerencia-chat="Quiero crear una meta">Quiero crear una meta</button>
+          <button data-sugerencia-chat="¿Qué es invertir?">¿Qué es invertir?</button>
+        </div>
+        <form class="form-chat" id="form-chat">
+          <input type="text" id="input-chat" placeholder="Escribe tu pregunta..." autocomplete="off">
+          <button type="submit" class="btn btn-primario btn-pequeno">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== NAV MÓVIL ===================== -->
+  <nav class="nav-movil" aria-label="Navegación móvil">
+    <button data-pantalla="pantalla-inicio"><span class="icono-nav">🏠</span>Inicio</button>
+    <button data-pantalla="pantalla-aprende"><span class="icono-nav">📚</span>Aprende</button>
+    <button data-pantalla="pantalla-presupuesto"><span class="icono-nav">📋</span>Presup.</button>
+    <button data-pantalla="pantalla-metas"><span class="icono-nav">🎯</span>Metas</button>
+    <button data-pantalla="pantalla-decisiones"><span class="icono-nav">🛒</span>Gastos</button>
+    <button data-pantalla="pantalla-quiz"><span class="icono-nav">🧠</span>Quiz</button>
+    <button data-pantalla="pantalla-retos"><span class="icono-nav">🏅</span>Retos</button>
+    <button data-pantalla="pantalla-progreso"><span class="icono-nav">📈</span>Progreso</button>
+    <button data-pantalla="pantalla-asesor"><span class="icono-nav">💬</span>Asesor</button>
+  </nav>
+
+  <!-- ===================== MODAL LECCIÓN ===================== -->
+  <div class="superposicion" id="superposicion-leccion">
+    <div class="panel-modal" id="contenido-leccion"></div>
+  </div>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/state.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/lessons.js"></script>
+<script src="js/budget.js"></script>
+<script src="js/goals.js"></script>
+<script src="js/decisions.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/challenges.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/advisor.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
