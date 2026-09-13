@@ -29,42 +29,158 @@
       <button data-pantalla="pantalla-asesor">💬 Asesor</button>
     </nav>
     <div class="contador-puntos">⭐ <span data-puntos-header>0</span> pts</div>
+    <button class="btn btn-primario btn-pequeno usuario-header oculto" id="btn-logout">Salir</button>
   </header>
 
   <main>
 
+    <!-- ===================== LOGIN ===================== -->
+    <section id="pantalla-login" class="pantalla">
+      <div class="login-container">
+        <div class="login-card">
+          <div class="login-tabs" role="tablist" aria-label="Autenticación">
+            <button type="button" class="auth-tab active" data-auth-mode="login">Iniciar sesión</button>
+            <button type="button" class="auth-tab" data-auth-mode="register">Registrarse</button>
+          </div>
+
+          <div class="login-header">
+            <span class="login-icon">🔐</span>
+            <h2 id="auth-title">Inicia sesión</h2>
+          </div>
+
+          <form id="form-auth" class="login-form">
+            <div class="campo login-campo" id="campo-nombre">
+              <label for="login-nombre">Nombre completo</label>
+              <input type="text" id="login-nombre" placeholder="Ej: Sofia Restrepo">
+            </div>
+
+            <div class="campo login-campo">
+              <label for="login-email">Correo electrónico</label>
+              <input type="email" id="login-email" placeholder="Ej: tuemail@correo.com" required>
+            </div>
+
+            <div class="campo login-campo">
+              <label for="login-password">Contraseña</label>
+              <input type="password" id="login-password" placeholder="Ingresa tu contraseña" required>
+            </div>
+
+            <button type="submit" id="btn-auth-submit" class="btn btn-primario btn-block">Entrar</button>
+          </form>
+
+          <p class="login-ayuda">Los datos se guardan en este navegador para que puedas seguir usando la app sin backend.</p>
+          <p id="login-mensaje" class="login-mensaje" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== INICIO ===================== -->
     <section id="pantalla-inicio" class="pantalla activa">
-      <div class="hero">
-        <span class="moneda-hero">🪙💰🐷</span>
-        <h1>Finanzas juveniles</h1>
-        <p class="eslogan">Aprende a manejar tu dinero jugando, practicando y decidiendo.</p>
-        <p class="explicacion">
-          Finanzas juveniles es una plataforma educativa e interactiva pensada para niños y adolescentes.
-          Aquí no solo lees sobre dinero: organizas un presupuesto real, creas metas de ahorro, tomas
-          decisiones en situaciones cotidianas y compruebas cuánto vas aprendiendo con retos y quizzes.
-        </p>
-        <div class="hero-botones">
-          <button class="btn btn-primario" data-pantalla="pantalla-aprende">Empezar a aprender</button>
-          <button class="btn btn-secundario" data-pantalla="pantalla-presupuesto">Crear mi presupuesto</button>
+      <div class="hero-home">
+        <div class="hero-copy">
+          <h1>Finanzas<br>Juveniles</h1>
+          <p class="eslogan">En tus metas confiamos, contigo avanzamos y el éxito lo alcanzamos.</p>
+          <p class="explicacion">
+            Aprende a manejar tu dinero, organiza tus gastos, crea metas y toma mejores decisiones financieras.
+          </p>
+          <div class="hero-botones">
+            <button class="btn btn-primario" data-pantalla="pantalla-aprende">Empezar a aprender</button>
+            <button class="btn btn-secundario" data-pantalla="pantalla-presupuesto">Crear mi presupuesto</button>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="speech speech-left">Pequeñas decisiones<br>hoy, grandes<br>logros mañana</div>
+
+          <div class="scene">
+            <div class="plant plant-left"></div>
+            <div class="plant plant-right"></div>
+
+            <div class="book-stack">
+              <span class="book book-1">APRENDE</span>
+              <span class="book book-2">AHORRA</span>
+              <span class="book book-3">LOGRA</span>
+            </div>
+
+            <div class="piggy-bank">
+              <span class="piggy-symbol">$</span>
+              <span class="piggy-face">🐷</span>
+            </div>
+
+            <div class="laptop">
+              <div class="screen"></div>
+              <div class="base"></div>
+            </div>
+          </div>
+
+          <div class="speech speech-right">¿Por qué es importante<br>la educación financiera?<br><small>Porque te ayuda a tomar mejores decisiones, evitar problemas en el futuro y alcanzar tus sueños.</small></div>
         </div>
       </div>
 
-      <div class="por-que-importa">
-        <div class="item">
-          <div class="icono">🌱</div>
-          <h3>Hábitos que duran toda la vida</h3>
-          <p>Lo que aprendes sobre el dinero de joven se convierte en hábitos que te acompañan de adulto.</p>
+      <div class="herramientas-home">
+        <div class="tools-header">
+          <span class="tools-icon">↗</span>
+          <div>
+            <h2>Explora nuestras herramientas</h2>
+            <p>Aprende, practica y avanza a tu ritmo.</p>
+          </div>
         </div>
-        <div class="item">
-          <div class="icono">🧭</div>
-          <h3>Mejores decisiones</h3>
-          <p>Entender necesidades, deseos y metas te ayuda a decidir en qué gastar y en qué no.</p>
-        </div>
-        <div class="item">
-          <div class="icono">🚀</div>
-          <h3>Confianza para el futuro</h3>
-          <p>Saber cómo funcionan el ahorro, la inversión y las deudas te da seguridad para el futuro.</p>
+
+        <div class="tools-grid">
+          <div class="tool-card" data-pantalla="pantalla-aprende">
+            <div class="tool-icon blue">📖</div>
+            <h3>Aprende</h3>
+            <p>Descubre conceptos financieros de forma fácil y divertida.</p>
+            <span class="arrow-card">→</span>
+          </div>
+
+          <div class="tool-card" data-pantalla="pantalla-presupuesto">
+            <div class="tool-icon blue">🧮</div>
+            <h3>Mi presupuesto</h3>
+            <p>Organiza tus ingresos y gastos en un solo lugar.</p>
+            <span class="arrow-card">→</span>
+          </div>
+
+          <div class="tool-card" data-pantalla="pantalla-metas">
+            <div class="tool-icon blue">🎯</div>
+            <h3>Mis metas</h3>
+            <p>Establece tus metas de ahorro y sigue tu progreso.</p>
+            <span class="arrow-card">→</span>
+          </div>
+
+          <div class="tool-card" data-pantalla="pantalla-decisiones">
+            <div class="tool-icon blue">🛒</div>
+            <h3>Gastos inteligentes</h3>
+            <p>Analiza tus compras y toma decisiones con criterio.</p>
+            <span class="arrow-card">→</span>
+          </div>
+
+          <div class="tool-card" data-pantalla="pantalla-quiz">
+            <div class="tool-icon blue">🎮</div>
+            <h3>Quiz financiero</h3>
+            <p>Pon a prueba lo que sabes con preguntas rápidas.</p>
+            <span class="arrow-card">→</span>
+          </div>
+
+          <div class="tool-card" data-pantalla="pantalla-retos">
+            <div class="tool-icon blue">🏆</div>
+            <h3>Retos</h3>
+            <p>Completa desafíos y conviértete en experto financiero.</p>
+            <span class="arrow-card">→</span>
+          </div>
+
+          <div class="tool-card compact" data-pantalla="pantalla-progreso">
+            <div class="tool-icon blue">📊</div>
+            <h3>Mi progreso</h3>
+            <p>Revisa tus logros, puntos y avances.</p>
+            <span class="arrow-card">→</span>
+          </div>
+
+          <div class="tool-card compact" data-pantalla="pantalla-asesor">
+            <div class="tool-icon blue">💬</div>
+            <h3>Asesor educativo</h3>
+            <p>Haz preguntas y recibe consejos personalizados.</p>
+            <span class="arrow-card">→</span>
+          </div>
         </div>
       </div>
     </section>
@@ -221,6 +337,47 @@
     </section>
 
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-logo">💰</span>
+        <div>
+          <h3>Finanzas Juveniles</h3>
+          <p>Proyecto educativo</p>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-item">
+          <span class="footer-label">Nombre</span>
+          <p>Sofia Restrepo</p>
+          <p>Samuel Osorio</p>
+        </div>
+
+        <div class="footer-item">
+          <span class="footer-label">Teléfono</span>
+          <p>305 3523651</p>
+          <p>300 7317238</p>
+        </div>
+
+        <div class="footer-item">
+          <span class="footer-label">Colegio</span>
+          <p>Institución Educativa Diego Echavarría Misas</p>
+        </div>
+
+        <div class="footer-item">
+          <span class="footer-label">Instagram</span>
+          <p>@finanzas_juveniles</p>
+        </div>
+
+        <div class="footer-item">
+          <span class="footer-label">Correo</span>
+          <p>finanzasjuvenilesms@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- ===================== NAV MÓVIL ===================== -->
   <nav class="nav-movil" aria-label="Navegación móvil">
